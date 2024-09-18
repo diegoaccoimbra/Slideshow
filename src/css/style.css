@@ -1,0 +1,144 @@
+@charset "UTF-8";
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+:root {
+    --color1: #ffffff;
+    --color2: #272727;
+    --color3: #20b2aa;
+}
+
+/*Configurações gerais*/
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color2);
+}
+
+/*Configurando o slider, que é a div que contém tudo*/
+.slider {
+    margin: 0 auto;
+    /*Altura e largura proporcionais com o tamanho da imagem*/
+    width: 710px;
+    height: 400px;
+    /*Esconde as outras imagens, mostrando só a primeira*/
+    overflow: hidden;
+}
+
+/*Configurando o slides, que é a div que contém os radios e cada imagem*/
+.slides {
+    width: 400%;
+    height: 400px;
+    display: flex;
+}
+
+/*Ocultando os inputs dos radios (vamos precisar só dos labels referente a cada radio)*/
+.slides input {
+    display: none;
+}
+
+/*Configurando cada imagem*/
+.slideFirst, .slide {
+    width: 25%;
+    position: relative;
+    transition: 0.5s;
+}
+
+/*Acessando cada imagem e definindo a largura dela*/
+.slideFirst img, .slide img {
+    width: 710px;
+}
+
+/*Configurações a div que contém os labels de cada radio button*/
+.manual-navigation {
+    position: absolute;
+    width: 710px;
+    margin-top: -40px;
+    display: flex;
+    justify-content: center;
+}
+
+/*Configurações dos labels*/
+.manual-btn {
+    border: 2px solid var(--color1);
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+/*Aplicando margin na direita em todos os labels, menos no último item (pra eles ficarem espaçados)*/
+.manual-btn:not(:last-child) {
+    margin-right: 30px;
+}
+
+/*Colorindo o fundo do label que o cursor está posicionado*/
+.manual-btn:hover {
+    background-color: var(--color1);
+}
+
+/*CONFIGURANDO OS RADIOS PARA FAZER A TRANSIÇÃO DE IMAGEM QUANDO FOREM SELECIONADOS*/
+/*Quando o radio1 estiver ativo e for o primeiro, queremos que ele comece no primeiro slide*/
+#radio1:checked ~ .slideFirst {
+    margin-left: 0;
+}
+
+/*Quando o radio2 está selecionado damos -25% de margin-lef pra levar a imagem 25% a menos pra esquerda*/
+#radio2:checked ~ .slideFirst {
+    margin-left: -25%;
+}
+
+/*Quando o radio3 está selecionado damos -50% de margin-lef pra levar a imagem 50% a menos pra esquerda*/
+#radio3:checked ~ .slideFirst {
+    margin-left: -50%;
+}
+
+/*Quando o radio4 está selecionado damos -75% de margin-lef pra levar a imagem 75% a menos pra esquerda*/
+#radio4:checked ~ .slideFirst {
+    margin-left: -75%;
+}
+
+/*Configurando o navigationAuto*/
+.navigationAuto div {
+    border: 2px solid var(--color3);
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.navigationAuto {
+    position: absolute;
+    width: 710px;
+    margin-top: 360px;
+    display: flex;
+    justify-content: center;
+}
+
+.navigationAuto div:not(:last-child) {
+    margin-right: 30px;
+}
+
+/*Deixando o label branco quando estiver selecionado*/
+/*Quando o radio1 estiver selecionado, acessamos a div com classe ".auto-btn1 "que está dentro da div ".navigationAuto"*/
+#radio1:checked ~ .navigationAuto .auto-btn1 {
+    background-color: var(--color1);
+}
+
+#radio2:checked ~ .navigationAuto .auto-btn2 {
+    background-color: var(--color1);
+}
+
+#radio3:checked ~ .navigationAuto .auto-btn3 {
+    background-color: var(--color1);
+}
+
+#radio4:checked ~ .navigationAuto .auto-btn4 {
+    background-color: var(--color1);
+}
