@@ -17,6 +17,9 @@ function startInterval() {
     }, duration = 7000)
 }
 
+/* Iniciando o intervalo */
+startInterval()
+
 //Função nextImage que vai fazer a transição das imagens.
 function nextImage(){
     //Definindo um laço while que vai checar qual radio button está selecionado (qual imagem está aparecendo no momento).
