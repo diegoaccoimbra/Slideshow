@@ -9,7 +9,7 @@ A aplicação consiste em um slideshow automático e interativo, semelhante aos 
 ## 🛠️ Tecnologias utilizadas
 
 - **HTML**
-- **CCC**
+- **CSS**
 - **JavaScript**
 
 ---
